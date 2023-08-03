@@ -10,7 +10,6 @@ import MoviePage from './pages/MoviePage';
 import Netflix from './pages/Netflix';
 import Player from './pages/Player';
 import TvShow from './pages/TvShow';
-import Header from './components/Header';
 function App() {
 
   return (
@@ -23,7 +22,7 @@ function App() {
         <Route exact path='/tv' element={<TvShow/>}></Route>
         <Route exact path='/movie' element={<MoviePage/>}></Route>
       </Routes>
-      <Header/>
+    
     </BrowserRouter>
   )
 }
