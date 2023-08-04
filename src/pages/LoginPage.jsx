@@ -1,31 +1,31 @@
 import { useState } from "react";
-// import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-// import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
 import BackgroundImage from "../components/BackgroundImage";
 import styled from "styled-components";
-// import { firebaseAuth } from "../utils/firebase-config";
+
+import { firebaseAuth } from "../utils/firebase-config";
 
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+    const navigate = useNavigate()
 
-    // const navigate = useNavigate()
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // const handleLogin = async () => {
-  //   try {
-  //     await signInWithEmailAndPassword(firebaseAuth, email, password);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // onAuthStateChanged(firebaseAuth, (currentUser) => {
-  //   if (currentUser) navigate("/");
-  // });
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (currentUser) navigate("/");
+  });
 
   return (
     <Wrapper>
@@ -50,7 +50,7 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
-              <button >Login</button>
+              <button onClick={handleLogin}>Login</button>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
     width: 100vw;
     grid-template-columns: 15vh 85vh;
@@ -97,7 +97,7 @@ const Wrapper = styled.div`
           border-radius: 0.4rem;
           padding: 0.5rem 1rem;
           width: 25rem;
-          height: 2.9rem;
+          height: 2.5rem;
           outline: none;
         }
         button {
