@@ -100,11 +100,10 @@ const Container = styled.div`
       padding: 0 25rem;
     }
     h4 {
-      margin-top: -1.5rem;
+      margin-top: 1.5rem;
     }
     h6 {
-      margin-top: -1.5rem;
-     
+      margin-top: 1.5rem;
     }
   }
   .form {
