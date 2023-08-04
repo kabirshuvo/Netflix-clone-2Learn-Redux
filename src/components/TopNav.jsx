@@ -58,7 +58,7 @@ const NavContainer = styled.div`
   }
   .scrolled{
     display: flex;
-    background-color: black;
+    background-color: #111111;
   }
   nav{
     position: sticky;
@@ -67,7 +67,7 @@ const NavContainer = styled.div`
     width: 100%;
     justify-content: space-between;
     position: fixed;
-    z-index: 2;
+    z-index: 20;
     padding: 0.4rem;
     align-items: center;
    transition: 0.3s ease-in;
